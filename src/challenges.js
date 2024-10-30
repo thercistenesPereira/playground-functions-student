@@ -59,6 +59,23 @@ function checkItem(data, category, item) {
 }
 
 // Requisito 6 - Crie uma função que adiciona um novo item caso ele ainda não exista
+function addNewItem(data, category, item, price, ingredients, calories) {
+  for (let index = 0; index < data[category].length; index += 1) {
+    if (data[category][index].name === item) {
+      return `O produto: "${item}" já existe!`;
+    }
+  }
+
+  const newItem = {
+    name: item,
+    price,
+    ingredients,
+    calories,
+  };
+
+  data[category].push(newItem);
+  return newItem;
+}
 
 // Requisito 7 - Crie uma função que conta a quantidade de pessoas por gênero
 
