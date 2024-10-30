@@ -9,8 +9,26 @@ const guestsDatabase = require('./data.json');
 const splitSentence = (phrase) => phrase.split(' ');
 
 // Requisito 2 - Crie uma função que calcula a quantidade de pontos em um campeonato de futebol
+const footballPoints = (wins, ties) => {
+  const vitoria = wins * 3;
+  const empate = ties * 1;
+
+  return vitoria + empate;
+};
 
 // Requisito 3 - Crie uma função que adiciona músicas em uma playlist
+
+let playlist = [];
+const addMusics = (artistName, musicName, musicTime) => {
+  const music = {
+    artist: artistName,
+    music: musicName,
+    musicTime,
+  };
+
+  playlist.push(music);
+  return music;
+};
 
 // =================================================
 // PARTE 2
