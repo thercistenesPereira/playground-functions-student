@@ -48,9 +48,15 @@ function moreExpensive(data, category) {
   return `O produto mais caro é: ${productName}, que custa: R$${productPrice.toFixed(2)}.`;
 }
 
-// console.log(moreExpensive(menu, 'sandwiches'));
-
 // Requisito 5 - Crie uma função que verifica se um determinado item já existe
+function checkItem(data, category, item) {
+  for (let index = 0; index < data[category].length; index += 1) {
+    if (data[category][index].name === item) {
+      return true;
+    }
+  }
+  return false;
+}
 
 // Requisito 6 - Crie uma função que adiciona um novo item caso ele ainda não exista
 
