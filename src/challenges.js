@@ -115,10 +115,40 @@ function filterState(data, state) {
   return states;
 }
 
-console.log(filterState(guestsDatabase, 'Wisconsin'));
 // Requisito 9 - Crie uma função que altera a propriedade `picture`
+function changePicture(data, link) {
+  for (let index = 0; index < data.guests.length; index += 1) {
+    data.guests[index].picture = link;
+  }
+
+  return data.guests;
+}
 
 // Requisito 10 - Crie um função que gera um relatório
+function generateReport(data) {
+  let totalGuests = 0;
+  let avgAge = 0;
+  let countries = [];
+
+  for (let index = 0; index < data.guests.length; index += 1) {
+    totalGuests += 1;
+    avgAge += data.guests[index].age;
+    if (!countries.includes(data.guests[index].country)) {
+      countries.push(data.guests[index].country);
+    }
+  }
+
+  countries.sort();
+
+  return {
+    totalGuests,
+    totalGender: counterGender(data),
+    avgAge: Number((avgAge / totalGuests).toFixed(2)),
+    countries,
+  };
+}
+
+console.log(generateReport(guestsDatabase));
 
 // Não modifique as linhas abaixo
 module.exports = {
