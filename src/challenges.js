@@ -78,6 +78,27 @@ function addNewItem(data, category, item, price, ingredients, calories) {
 }
 
 // Requisito 7 - Crie uma função que conta a quantidade de pessoas por gênero
+function counterGender(data) {
+  countMale = 0;
+  countFemale = 0;
+
+  for (let index = 0; index < data.guests.length; index += 1) {
+    if (data.guests[index].gender === 'male') {
+      countMale += 1;
+    } else if (data.guests[index].gender === 'female') {
+      countFemale += 1;
+    }
+  }
+
+  const countGender = {
+    male: countMale,
+    female: countFemale,
+  };
+
+  return countGender;
+}
+
+console.log(counterGender(guestsDatabase));
 
 // =================================================
 // PARTE 3
